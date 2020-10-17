@@ -16,11 +16,11 @@ struct Ship {
     var launched: Int
     var icon: UIImage?
     
-//    init(name: String = "", shipClass: String = "", launched: Int = 0) {
-//        self.name = name
-//        self.shipClass = shipClass
-//        self.launched = launched
-//    }
+    init(name: String = "", shipClass: String = "", launched: Int = 0) {
+        self.name = name
+        self.shipClass = shipClass
+        self.launched = launched
+    }
     
     init(name: String, shipClass: String, launched: Int, icon: UIImage) {
         self.name = name

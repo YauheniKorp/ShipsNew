@@ -56,11 +56,17 @@ class ShipsCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MyCollectionViewCell
         
         
-        cell.setCell(ships[indexPath.row])
-        
+//        cell.setCell(ships[indexPath.row])
+        cell.layer.borderWidth = 0.5
+        let imageFrame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height * 0.5)
+        let nameFrame = CGRect(x: 0, y: cell.frame.height * 0.6, width: cell.frame.width, height: cell.frame.height * 0.13)
+        let shipClassFrame = CGRect(x: 0, y: cell.frame.height * 0.74, width: cell.frame.width, height: cell.frame.height * 0.13)
+        let launchedFrame = CGRect(x: 0, y: cell.frame.height * 0.87, width: cell.frame.width, height: cell.frame.height * 0.13)
+        cell.addSubview(ShipView.init(ships[indexPath.row], imageFrame, nameFrame, shipClassFrame, launchedFrame))
         
         return cell
     }
+    
     
     
     
@@ -101,6 +107,10 @@ class ShipsCollectionViewController: UICollectionViewController {
 
 extension ShipsCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width / 3, height: self.view.frame.height / 3)
+        return CGSize(width: self.view.frame.width / 2.9, height: self.view.frame.height / 3.6)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40)
     }
 }
