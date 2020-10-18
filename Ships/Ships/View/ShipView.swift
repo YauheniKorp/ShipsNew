@@ -20,7 +20,7 @@ class ShipView: UIView {
     @IBOutlet weak var shipLaunched: UILabel!
     
     //    init(ship: Ship, frame: CGRect) {
-    init(ship: Ship, index: Int = 0, frame: CGRect = CGRect(x: 0, y: 0, width: 163, height: 141)) {
+    init(ship: Ship, index: Int = 0, frame: CGRect = CGRect(x: 16, y: 20, width: 150, height: 140)) {
         
 //        let frame = CGRect(x: 0, y: 0, width: 375, height: 500)
 
@@ -38,7 +38,7 @@ class ShipView: UIView {
         if let icon = ship.icon {
             self.shipIcon?.image = icon
         }
-//        self.backgroundColor = .lightGray
+        self.backgroundColor = .lightGray
     }
     
     required init?(coder: NSCoder) {

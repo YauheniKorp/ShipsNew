@@ -37,30 +37,34 @@ class ViewController: UIViewController {
     var textView: UITextView = {
         var textView = UITextView(frame: CGRect(x: 40, y: 30, width: 300, height: 450))
         
+        textView.backgroundColor = .clear   // прозрачный фон
+        
         return textView
     }()
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.view.addSubview(textView)
-//        self.view.addSubview(segmentControll)
-//        segmentControll.addTarget(self, action: #selector(changeValue), for: .valueChanged)
-//        
-//        pick.center = view.center
-//        pick.dataSource = self
-//        pick.delegate = self
-//        view.addSubview(pick)
-//        pick.isHidden = true
-//        
+        // test ShipView
         let shipView0 = ShipView(ship: ships.first!)
         self.view.addSubview(shipView0)
         
-        let shipView1 = ShipView(ship: ships[1], index: 1, frame: CGRect(x: 180, y: 0, width: 163, height: 141) )
+        let shipView1 = ShipView(ship: ships[1], index: 1, frame: CGRect(x: 180, y: 20, width: 150, height: 140) )
         self.view.addSubview(shipView1)
         
-        let shipView2 = ShipView(ship: ships[1], index: 2, frame: CGRect(x: 0, y: 170, width: 163, height: 141) )
+        let shipView2 = ShipView(ship: ships[2], index: 2, frame: CGRect(x: 16, y: 180, width: 150, height: 140) )
         self.view.addSubview(shipView2)
+        
+        
+        self.view.addSubview(textView)
+        self.view.addSubview(segmentControll)
+        segmentControll.addTarget(self, action: #selector(changeValue), for: .valueChanged)
+        
+        pick.center = view.center
+        pick.dataSource = self
+        pick.delegate = self
+        view.addSubview(pick)
+        pick.isHidden = true
     
     }
     
@@ -91,16 +95,10 @@ class ViewController: UIViewController {
             textView.text = resultText
         case 3:
             pick.isHidden = true
-//            let storyboard: UIStoryboard = UIStoryboard(name: "ShipsStoryboard", bundle: nil)
-//            let controller: ShipsCollectionViewController = storyboard.instantiateViewController(withIdentifier: "shipsID") as! ShipsCollectionViewController
-//            controller.modalPresentationStyle = .fullScreen
-//            present(controller, animated: true, completion: nil)
-//            var str = Battles.init().listOfBattle
-//            print(str[1])
-            
-            let str = Ships().listOfShips
-            print(str[0])
-            self.view.addSubview(ShipView(ship: str[0]))
+            let storyboard: UIStoryboard = UIStoryboard(name: "ShipsStoryboard", bundle: nil)
+            let controller: ShipsCollectionViewController = storyboard.instantiateViewController(withIdentifier: "shipsID") as! ShipsCollectionViewController
+            controller.modalPresentationStyle = .fullScreen
+            present(controller, animated: true, completion: nil)
             
         default:
             break

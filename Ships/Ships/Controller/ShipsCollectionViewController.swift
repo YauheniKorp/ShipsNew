@@ -53,10 +53,11 @@ class ShipsCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MyCollectionViewCell
         
-        
-        cell.setCell(ships[indexPath.row])
+        cell.setCell(ships[indexPath.row], index: indexPath.row)
+//        cell = MyCollectionViewCell(ships[indexPath.row])
         
         
         return cell
