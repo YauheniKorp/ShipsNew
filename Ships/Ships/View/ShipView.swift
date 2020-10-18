@@ -8,6 +8,31 @@
 
 import UIKit
 
+class ShipView: UIView {
+    
+    @IBOutlet weak var ShipIcon: UIImageView!
+    
+    @IBOutlet weak var NameShip: UILabel!
+    @IBOutlet weak var ShipClass: UILabel!
+    @IBOutlet weak var ShipLaunched: UILabel!
+    
+//    init(ship: Ship, frame: CGRect) {
+    init(ship: Ship) {
+        let frame = CGRect(x: 0, y: 0, width: 375, height: 500)
+        super.init(frame: frame)
+
+        self.NameShip.text = ship.name
+        self.ShipClass.text = ship.shipClass
+        self.ShipLaunched.text = String(ship.launched)
+        self.ShipIcon.image = ship.icon
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}
+
 //class ShipView: UIView {
 //
 //    private var ship = Ship()

@@ -80,15 +80,10 @@ class ViewController: UIViewController {
             textView.text = resultString
         case 1:
             textView.text = ""
-            //            var pick = UIPickerView(frame: CGRect(x: Int(view.center.x) - Int((view.frame.width / 3) / 2), y: Int(view.center.y), width: Int(view.frame.width / 3), height: Int(view.frame.height / 3)))
-            
             pick.isHidden = false
             
+            self.view.addSubview(ShipView(ship: self.ships.listOfShips[0]))
             
-            //view.addSubview(pick)
-            // let ships = db.gettingShipsList(<#T##dbClass: String##String#>)
-            
-        //            textView.text = "Ships"
         case 2:
             pick.isHidden = true
             let textForOutomesSegment = db.gettingOutcomesList()
