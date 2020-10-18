@@ -53,8 +53,14 @@ class ViewController: UIViewController {
 //        view.addSubview(pick)
 //        pick.isHidden = true
 //        
-        let shipView = ShipView(ship: ships.first!)
-        self.view.addSubview(shipView)
+        let shipView0 = ShipView(ship: ships.first!)
+        self.view.addSubview(shipView0)
+        
+        let shipView1 = ShipView(ship: ships[1], index: 1, frame: CGRect(x: 180, y: 0, width: 163, height: 141) )
+        self.view.addSubview(shipView1)
+        
+        let shipView2 = ShipView(ship: ships[1], index: 2, frame: CGRect(x: 0, y: 170, width: 163, height: 141) )
+        self.view.addSubview(shipView2)
     
     }
     

@@ -14,14 +14,15 @@ class ShipView: UIView {
 
     @IBOutlet weak var shipIcon: UIImageView!
 
+    @IBOutlet weak var shipIndex: UILabel!
     @IBOutlet weak var nameShip: UILabel!
     @IBOutlet weak var shipClass: UILabel!
     @IBOutlet weak var shipLaunched: UILabel!
     
     //    init(ship: Ship, frame: CGRect) {
-    init(ship: Ship) {
+    init(ship: Ship, index: Int = 0, frame: CGRect = CGRect(x: 0, y: 0, width: 163, height: 141)) {
         
-        let frame = CGRect(x: 0, y: 0, width: 375, height: 500)
+//        let frame = CGRect(x: 0, y: 0, width: 375, height: 500)
 
         super.init(frame: frame)
         
@@ -30,13 +31,14 @@ class ShipView: UIView {
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
                 
+        self.shipIndex.text = String(index)
         self.nameShip.text = ship.name
         self.shipClass.text = ship.shipClass
         self.shipLaunched.text = String(ship.launched)
         if let icon = ship.icon {
             self.shipIcon?.image = icon
         }
-        self.backgroundColor = .lightGray
+//        self.backgroundColor = .lightGray
     }
     
     required init?(coder: NSCoder) {
