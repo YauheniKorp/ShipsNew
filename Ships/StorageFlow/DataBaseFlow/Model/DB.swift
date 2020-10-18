@@ -182,6 +182,8 @@ extension DB {
             outcomes.append("Name = \(ship), battle is \(battle), result is \(result)")
         }
         
+        sqlite3_finalize(str)
+        
         return outcomes
     }
 }
@@ -212,13 +214,15 @@ extension DB {
             if let dataBlob = sqlite3_column_blob(str, 3){
                 let dataBlobLength = sqlite3_column_bytes(str, 3)
                 blob = Data(bytes: dataBlob, count: Int(dataBlobLength))
-                print("dataBlob: \n", dataBlob)
-                print("dataBlobLength = ", dataBlobLength)
+//                print("dataBlob: \n", dataBlob)
+//                print("dataBlobLength = ", dataBlobLength)
             }
             let imageSource = UIImage(data: blob)
             
             ships.append(Ship(name: name, shipClass: shipClass, launched: launched, icon: imageSource!))
         }
+                
+        sqlite3_finalize(str)
         
         return ships
     }
@@ -253,6 +257,8 @@ extension DB {
             }
             battles.append(Battle(name: name, date: date, video: blob))
         }
+        
+        sqlite3_finalize(str)
         
         return battles
     }

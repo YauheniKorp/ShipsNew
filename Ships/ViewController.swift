@@ -10,7 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var ships = Ships()
+    var db = DB()
+    var ships = Ships().listOfShips
     
     enum TitleForSegment: String {
         case Battles = "Battles"
@@ -33,36 +34,28 @@ class ViewController: UIViewController {
     
     let pick = UIPickerView()
     
-    
     var textView: UITextView = {
         var textView = UITextView(frame: CGRect(x: 40, y: 30, width: 300, height: 450))
         
         return textView
     }()
-    
-    var db = DB()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.addSubview(textView)
-        self.view.addSubview(segmentControll)
-        segmentControll.addTarget(self, action: #selector(changeValue), for: .valueChanged)
-        
-        
-        pick.center = view.center
-        pick.dataSource = self
-        pick.delegate = self
-        view.addSubview(pick)
-        pick.isHidden = true
-        
-        
-        print(db.openDB())
-        
-        print(Ships())
-        //        print(db.gettingShipsList("Kongo"))
-        //        print(db.gettingBattleList())
-        
+//        self.view.addSubview(textView)
+//        self.view.addSubview(segmentControll)
+//        segmentControll.addTarget(self, action: #selector(changeValue), for: .valueChanged)
+//        
+//        pick.center = view.center
+//        pick.dataSource = self
+//        pick.delegate = self
+//        view.addSubview(pick)
+//        pick.isHidden = true
+//        
+        let shipView = ShipView(ship: ships.first!)
+        self.view.addSubview(shipView)
+    
     }
     
     
@@ -82,8 +75,6 @@ class ViewController: UIViewController {
             textView.text = ""
             pick.isHidden = false
             
-            self.view.addSubview(ShipView(ship: self.ships.listOfShips[0]))
-            
         case 2:
             pick.isHidden = true
             let textForOutomesSegment = db.gettingOutcomesList()
@@ -94,15 +85,17 @@ class ViewController: UIViewController {
             textView.text = resultText
         case 3:
             pick.isHidden = true
-            let storyboard: UIStoryboard = UIStoryboard(name: "ShipsStoryboard", bundle: nil)
-            let controller: ShipsCollectionViewController = storyboard.instantiateViewController(withIdentifier: "shipsID") as! ShipsCollectionViewController
-            controller.modalPresentationStyle = .fullScreen
-            present(controller, animated: true, completion: nil)
+//            let storyboard: UIStoryboard = UIStoryboard(name: "ShipsStoryboard", bundle: nil)
+//            let controller: ShipsCollectionViewController = storyboard.instantiateViewController(withIdentifier: "shipsID") as! ShipsCollectionViewController
+//            controller.modalPresentationStyle = .fullScreen
+//            present(controller, animated: true, completion: nil)
 //            var str = Battles.init().listOfBattle
 //            print(str[1])
-//            var str = Ships.init().listOfShips
-//            print(str[0])
-//            self.view.addSubview(ShipView(str[0]))
+            
+            let str = Ships().listOfShips
+            print(str[0])
+            self.view.addSubview(ShipView(ship: str[0]))
+            
         default:
             break
         }

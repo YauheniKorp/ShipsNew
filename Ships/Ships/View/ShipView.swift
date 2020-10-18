@@ -10,25 +10,40 @@ import UIKit
 
 class ShipView: UIView {
     
-    @IBOutlet weak var ShipIcon: UIImageView!
+    @IBOutlet var contentView: ShipView!
     
-    @IBOutlet weak var NameShip: UILabel!
-    @IBOutlet weak var ShipClass: UILabel!
-    @IBOutlet weak var ShipLaunched: UILabel!
+    @IBOutlet weak var shipIcon: UIImageView?
     
-//    init(ship: Ship, frame: CGRect) {
+    @IBOutlet weak var nameShip: UILabel?
+    @IBOutlet weak var shipClass: UILabel?
+    @IBOutlet weak var shipLaunched: UILabel?
+    
+    //    init(ship: Ship, frame: CGRect) {
     init(ship: Ship) {
         let frame = CGRect(x: 0, y: 0, width: 375, height: 500)
         super.init(frame: frame)
-
-        self.NameShip.text = ship.name
-        self.ShipClass.text = ship.shipClass
-        self.ShipLaunched.text = String(ship.launched)
-        self.ShipIcon.image = ship.icon
+        
+        Bundle.main.loadNibNamed("VideoView", owner: self, options: nil)
+        addSubview(contentView)
+                
+//        self.nameShip?.text = ship.name
+//        self.shipClass?.text = ship.shipClass
+//        self.shipLaunched?.text = String(ship.launched)
+//        if let icon = ship.icon {
+//            self.shipIcon?.image = icon
+//        }
+        self.backgroundColor = .lightGray
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+//        super.init(coder: coder)
+//        commonInit()
+    }
+    
+    private func commonInit() {
+//        Bundle.main.loadNibNamed("VideoView", owner: self, options: nil)
+        addSubview(contentView)
     }
     
 }

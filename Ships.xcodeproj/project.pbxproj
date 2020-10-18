@@ -191,8 +191,8 @@
 		84FF0828253735920025C473 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				84205478253AF0B6001C5D21 /* VideoView.xib */,
 				84FF08262537358E0025C473 /* ShipView.swift */,
+				84205478253AF0B6001C5D21 /* VideoView.xib */,
 				84189A76253997D000211A2F /* CollectionViewCell.swift */,
 				8420547E253AF194001C5D21 /* VideoUIView.swift */,
 			);

@@ -33,7 +33,6 @@ struct Ship {
 
 struct Ships {
 
-    
     var listOfShips: [Ship]
 
     init() {
