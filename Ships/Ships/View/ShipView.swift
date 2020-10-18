@@ -11,27 +11,31 @@ import UIKit
 class ShipView: UIView {
     
     @IBOutlet var contentView: ShipView!
-    
-    @IBOutlet weak var shipIcon: UIImageView?
-    
-    @IBOutlet weak var nameShip: UILabel?
-    @IBOutlet weak var shipClass: UILabel?
-    @IBOutlet weak var shipLaunched: UILabel?
+
+    @IBOutlet weak var shipIcon: UIImageView!
+
+    @IBOutlet weak var nameShip: UILabel!
+    @IBOutlet weak var shipClass: UILabel!
+    @IBOutlet weak var shipLaunched: UILabel!
     
     //    init(ship: Ship, frame: CGRect) {
     init(ship: Ship) {
+        
         let frame = CGRect(x: 0, y: 0, width: 375, height: 500)
+
         super.init(frame: frame)
         
         Bundle.main.loadNibNamed("VideoView", owner: self, options: nil)
         addSubview(contentView)
+        contentView.frame = self.bounds
+        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
                 
-//        self.nameShip?.text = ship.name
-//        self.shipClass?.text = ship.shipClass
-//        self.shipLaunched?.text = String(ship.launched)
-//        if let icon = ship.icon {
-//            self.shipIcon?.image = icon
-//        }
+        self.nameShip.text = ship.name
+        self.shipClass.text = ship.shipClass
+        self.shipLaunched.text = String(ship.launched)
+        if let icon = ship.icon {
+            self.shipIcon?.image = icon
+        }
         self.backgroundColor = .lightGray
     }
     
@@ -41,10 +45,10 @@ class ShipView: UIView {
 //        commonInit()
     }
     
-    private func commonInit() {
-//        Bundle.main.loadNibNamed("VideoView", owner: self, options: nil)
-        addSubview(contentView)
-    }
+//    private func commonInit() {
+////        Bundle.main.loadNibNamed("VideoView", owner: self, options: nil)
+//        addSubview(contentView)
+//    }
     
 }
 
