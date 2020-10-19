@@ -65,9 +65,21 @@ class ViewController: UIViewController {
         pick.delegate = self
         view.addSubview(pick)
         pick.isHidden = true
-    
+        
+        let buttonBattles = UIButton(frame: CGRect(x: 16, y: 600, width: 100, height: 20))
+        buttonBattles.backgroundColor = .lightGray
+        buttonBattles.setTitle("Battles", for: .normal)
+        buttonBattles.addTarget(self, action: #selector(showBattles), for: .touchUpInside)
+        self.view.addSubview(buttonBattles)
     }
     
+    // BattlesStoryboard.storyboard BattlesViewController.swift IdBattlesSB
+    @objc func showBattles() {
+        let storyboard: UIStoryboard = UIStoryboard(name: "BattlesStoryboard", bundle: nil)
+        let controller: BattlesViewController = storyboard.instantiateViewController(withIdentifier: "IdBattlesSB") as! BattlesViewController
+        controller.modalPresentationStyle = .fullScreen
+        present(controller, animated: true, completion: nil)
+    }
     
     //MARK: - Value for each segment
     @objc func changeValue() {
