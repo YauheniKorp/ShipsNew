@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         case Outcomes = "Outcomes"
     }
     
+    
     var segmentControll: UISegmentedControl = {
         let titles = ["Battles","Ships","Outcomes", "Full"]
         var segment = UISegmentedControl(items: titles)
@@ -44,6 +45,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+        imageView.contentMode = .scaleAspectFit
+        let image = UIImage(named: "ship")
+        
+        imageView.image = image
+        
+        self.navigationItem.titleView = imageView
         
         self.view.addSubview(textView)
         self.view.addSubview(segmentControll)
@@ -99,10 +108,15 @@ class ViewController: UIViewController {
             textView.text = resultText
         case 3:
             pick.isHidden = true
+            
             let storyboard: UIStoryboard = UIStoryboard(name: "ShipsStoryboard", bundle: nil)
-            let controller: ShipsCollectionViewController = storyboard.instantiateViewController(withIdentifier: "shipsID") as! ShipsCollectionViewController
-            controller.modalPresentationStyle = .fullScreen
-            present(controller, animated: true, completion: nil)
+            let shipVC = storyboard.instantiateViewController(withIdentifier: "shipsID")
+            self.navigationController?.pushViewController(shipVC, animated: true)
+            
+//            let controller: ShipsCollectionViewController = storyboard.instantiateViewController(withIdentifier: "shipsID") as! ShipsCollectionViewController
+//            
+//            controller.modalPresentationStyle = .fullScreen
+//            present(controller, animated: true, completion: nil)
 //            var str = Battles.init().listOfBattle
 //            print(str[1])
 //            var str = Ships.init().listOfShips

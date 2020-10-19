@@ -7,3 +7,30 @@
 //
 
 import Foundation
+
+enum Types: String {
+    case bb = "bb"
+    case bc = "bc"
+}
+
+struct ClassSpecification {
+    
+    var name: String
+    var type: String
+    var country: String
+    var numGuns: Int
+    var bore: Int
+    var displacement: Int
+    
+}
+
+struct ClassesSpecification {
+    
+    var listOfClasses: [ClassSpecification]
+    
+    init() {
+        self.listOfClasses = DB().getFullInfoAboutClasses()
+    }
+    
+}
+

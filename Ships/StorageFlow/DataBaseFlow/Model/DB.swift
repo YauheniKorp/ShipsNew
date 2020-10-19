@@ -256,4 +256,37 @@ extension DB {
         
         return battles
     }
-}
+    
+    func getFullInfoAboutClasses() -> [ClassSpecification] {
+        
+        
+            
+            let query = "select * from classes"
+            var str: OpaquePointer? = nil
+            
+            var classes = [ClassSpecification]()
+            
+            if sqlite3_prepare_v2(DB.db, query, -1, &str, nil) == SQLITE_OK {
+                print("Query \(query) is DONE!")
+            } else {
+                print("Query \(query) is incorrect!")
+            }
+            
+            while sqlite3_step(str) == SQLITE_ROW {
+                let name = String(cString: sqlite3_column_text(str, 0))
+                let type = String(cString: sqlite3_column_text(str, 1))
+                let country = String(cString: sqlite3_column_text(str, 2))
+                let numGuns = Int(sqlite3_column_int(str, 3))
+                let bore = Int(sqlite3_column_int(str, 4))
+                let displacement = Int(sqlite3_column_int(str, 5))
+                            
+                classes.append(ClassSpecification(name: name, type: type, country: country, numGuns: numGuns, bore: bore, displacement: displacement))
+                
+            }
+            
+            return classes
+        }
+        
+        
+    }
+

@@ -19,7 +19,9 @@ class ShipsCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        self.title = "Ships"
+
+//        collectionView?.frame = CGRect(x: 0, y: height, width: UIScreen.mainScreen().bounds.width, height: (UIScreen.mainScreen().bounds.height - height))
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -28,6 +30,9 @@ class ShipsCollectionViewController: UICollectionViewController {
         
         // Do any additional setup after loading the view.
     }
+    
+
+    
     
     /*
      // MARK: - Navigation
@@ -56,13 +61,13 @@ class ShipsCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MyCollectionViewCell
         
         
-//        cell.setCell(ships[indexPath.row])
+        cell.setCell(ships[indexPath.row])
         cell.layer.borderWidth = 0.5
-        let imageFrame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height * 0.5)
-        let nameFrame = CGRect(x: 0, y: cell.frame.height * 0.6, width: cell.frame.width, height: cell.frame.height * 0.13)
-        let shipClassFrame = CGRect(x: 0, y: cell.frame.height * 0.74, width: cell.frame.width, height: cell.frame.height * 0.13)
-        let launchedFrame = CGRect(x: 0, y: cell.frame.height * 0.87, width: cell.frame.width, height: cell.frame.height * 0.13)
-        cell.addSubview(ShipView.init(ships[indexPath.row], imageFrame, nameFrame, shipClassFrame, launchedFrame))
+//        let imageFrame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height * 0.5)
+//        let nameFrame = CGRect(x: 0, y: cell.frame.height * 0.6, width: cell.frame.width, height: cell.frame.height * 0.13)
+//        let shipClassFrame = CGRect(x: 0, y: cell.frame.height * 0.74, width: cell.frame.width, height: cell.frame.height * 0.13)
+//        let launchedFrame = CGRect(x: 0, y: cell.frame.height * 0.87, width: cell.frame.width, height: cell.frame.height * 0.13)
+//        cell.addSubview(ShipView(ships[indexPath.row], imageFrame, nameFrame, shipClassFrame, launchedFrame))
         
         return cell
     }
