@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import AVKit
+import AVKit
 import WebKit
 
 
@@ -28,24 +28,32 @@ class BattlesViewController: UIViewController {
     
     override func viewDidLoad() {
 
-        let battle = Battles().listOfBattle[3]
+        let battle = Battles().listOfBattle[1]
         
         let lName = UILabel(frame: CGRect(x: 16, y: 50, width: 150, height: 30))
         lName.text = battle.name
         
-        let lDate = UILabel(frame: CGRect(x: 130, y: 100, width: 100, height: 30))
+        let lDate = UILabel(frame: CGRect(x: 180, y: 50, width: 100, height: 30))
         lDate.text = battle.date
         
         let url = saveVideoToTemp(battle.video)
 
-        let webView = WKWebView(frame: CGRect(x: 16, y: 100, width: self.view.frame.width - 32, height: self.view.frame.height - 120))
-        webView.backgroundColor = .lightGray
-        let request = NSURLRequest(url: url)
-        webView.load(request as URLRequest)
+//        let webView = WKWebView(frame: CGRect(x: 16, y: 90, width: self.view.frame.width - 32, height: self.view.frame.height - 120))
+//        webView.backgroundColor = .lightGray
+//        let request = NSURLRequest(url: url)
+//        webView.load(request as URLRequest)
+//        self.view.addSubview(webView)
+
+        let player = AVPlayer(url: url)
+        let avController = AVPlayerViewController()
+        avController.player = player
+        avController.view.frame = CGRect(x: 16, y: 90, width: self.view.frame.width - 32, height: self.view.frame.height - 120)
+        self.view.addSubview(avController.view)
+        self.addChild(avController)
+        player.play()
         
         self.view.addSubview(lName)
         self.view.addSubview(lDate)
-        self.view.addSubview(webView)
     }
 
 }
