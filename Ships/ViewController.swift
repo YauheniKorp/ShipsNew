@@ -43,16 +43,12 @@ class ViewController: UIViewController {
     
     var db = DB()
     
+  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
-        imageView.contentMode = .scaleAspectFit
-        let image = UIImage(named: "ship")
-        
-        imageView.image = image
-        
-        self.navigationItem.titleView = imageView
+        makeTitleIcon()
         
         self.view.addSubview(textView)
         self.view.addSubview(segmentControll)
@@ -74,6 +70,16 @@ class ViewController: UIViewController {
         
     }
     
+    //MARK: - method of making ship icon in title
+    private func makeTitleIcon() {
+          let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+          imageView.contentMode = .scaleAspectFit
+          let image = UIImage(named: "ship")
+          
+          imageView.image = image
+          
+          self.navigationItem.titleView = imageView
+      }
     
     //MARK: - Value for each segment
     @objc func changeValue() {
