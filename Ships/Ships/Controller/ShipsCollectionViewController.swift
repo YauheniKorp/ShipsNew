@@ -18,7 +18,7 @@ class ShipsCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         self.title = "Ships"
 
 //        collectionView?.frame = CGRect(x: 0, y: height, width: UIScreen.mainScreen().bounds.width, height: (UIScreen.mainScreen().bounds.height - height))

@@ -18,6 +18,20 @@ class ViewController: UIViewController {
         case Outcomes = "Outcomes"
     }
     
+//    var tabBar: UITabBar = {
+//
+//        let tabBar = UITabBar(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+//
+//        var item = UITabBarItem(title: "Battle", image: nil, selectedImage: nil)
+//        var item1 = UITabBarItem(title: "Ship", image: nil, selectedImage: nil)
+//        var arr = [UITabBarItem]()
+//        arr.append(item)
+//        arr.append(item1)
+////        tabBar.items = arr
+//        tabBar.setItems(arr, animated: true)
+//        return tabBar
+//    }()
+    
     
     var segmentControll: UISegmentedControl = {
         let titles = ["Battles","Ships","Outcomes", "Full"]
@@ -52,8 +66,10 @@ class ViewController: UIViewController {
         
         self.view.addSubview(textView)
         self.view.addSubview(segmentControll)
+//        self.view.addSubview(tabBar)
         segmentControll.addTarget(self, action: #selector(changeValue), for: .valueChanged)
         
+        self.title = "firse"
         
         pick.center = view.center
         pick.dataSource = self
