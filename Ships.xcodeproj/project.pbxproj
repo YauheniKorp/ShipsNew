@@ -27,6 +27,9 @@
 		84B96A4F252DFC2F0013A924 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B96A4E252DFC2F0013A924 /* DB.swift */; };
 		84DBB6822539D404000B47A3 /* Ships.db in Resources */ = {isa = PBXBuildFile; fileRef = 84DBB6812539D404000B47A3 /* Ships.db */; };
 		84DBB6842539D99C000B47A3 /* BattleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBB6832539D99C000B47A3 /* BattleView.swift */; };
+		84E26268253EF29900963904 /* OutcomesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E26267253EF29900963904 /* OutcomesView.xib */; };
+		84E2626E253EF39D00963904 /* OutcomesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E2626D253EF39D00963904 /* OutcomesView.swift */; };
+		84E26270253EF67900963904 /* Outcomes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E2626F253EF67900963904 /* Outcomes.swift */; };
 		84FF08272537358E0025C473 /* ShipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF08262537358E0025C473 /* ShipView.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +68,9 @@
 		84B96A4E252DFC2F0013A924 /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
 		84DBB6812539D404000B47A3 /* Ships.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ships.db; sourceTree = "<group>"; };
 		84DBB6832539D99C000B47A3 /* BattleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleView.swift; sourceTree = "<group>"; };
+		84E26267253EF29900963904 /* OutcomesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OutcomesView.xib; path = Ships/Outcomes/View/OutcomesView.xib; sourceTree = SOURCE_ROOT; };
+		84E2626D253EF39D00963904 /* OutcomesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutcomesView.swift; sourceTree = "<group>"; };
+		84E2626F253EF67900963904 /* Outcomes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Outcomes.swift; sourceTree = "<group>"; };
 		84FF08262537358E0025C473 /* ShipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,6 +175,7 @@
 		84B96A25252DFA8A0013A924 /* Ships */ = {
 			isa = PBXGroup;
 			children = (
+				84E26269253EF2AA00963904 /* Outcomes */,
 				84B96A26252DFA8A0013A924 /* AppDelegate.swift */,
 				84B96A28252DFA8A0013A924 /* SceneDelegate.swift */,
 				84B54143253E007000AF5943 /* Battles */,
@@ -224,6 +231,40 @@
 				84B96A4E252DFC2F0013A924 /* DB.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		84E26269253EF2AA00963904 /* Outcomes */ = {
+			isa = PBXGroup;
+			children = (
+				84E2626C253EF2BF00963904 /* View */,
+				84E2626B253EF2B900963904 /* Controller */,
+				84E2626A253EF2B300963904 /* Model */,
+			);
+			path = Outcomes;
+			sourceTree = "<group>";
+		};
+		84E2626A253EF2B300963904 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84E2626F253EF67900963904 /* Outcomes.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84E2626B253EF2B900963904 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		84E2626C253EF2BF00963904 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84E26267253EF29900963904 /* OutcomesView.xib */,
+				84E2626D253EF39D00963904 /* OutcomesView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		84FF0828253735920025C473 /* View */ = {
@@ -321,6 +362,7 @@
 				84B96A33252DFA8E0013A924 /* LaunchScreen.storyboard in Resources */,
 				84B96A30252DFA8E0013A924 /* Assets.xcassets in Resources */,
 				84205479253AF0B6001C5D21 /* VideoView.xib in Resources */,
+				84E26268253EF29900963904 /* OutcomesView.xib in Resources */,
 				84B54152253E036700AF5943 /* BattlesStoryboard.storyboard in Resources */,
 				84B96A2E252DFA8A0013A924 /* Main.storyboard in Resources */,
 				84DBB6822539D404000B47A3 /* Ships.db in Resources */,
@@ -347,8 +389,10 @@
 				84B54148253E016200AF5943 /* BattlesViewController.swift in Sources */,
 				84FF08272537358E0025C473 /* ShipView.swift in Sources */,
 				84189A77253997D000211A2F /* CollectionViewCell.swift in Sources */,
+				84E26270253EF67900963904 /* Outcomes.swift in Sources */,
 				8420547F253AF194001C5D21 /* VideoUIView.swift in Sources */,
 				84B96A4F252DFC2F0013A924 /* DB.swift in Sources */,
+				84E2626E253EF39D00963904 /* OutcomesView.swift in Sources */,
 				84B96A27252DFA8A0013A924 /* AppDelegate.swift in Sources */,
 				84B96A29252DFA8A0013A924 /* SceneDelegate.swift in Sources */,
 				840D530725372FE4008FBD53 /* ShipsCollectionViewController.swift in Sources */,
