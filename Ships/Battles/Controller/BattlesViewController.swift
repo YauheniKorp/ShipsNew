@@ -9,12 +9,11 @@
 import UIKit
 import AVKit
 import WebKit
+//import AVFoundation
 
 
 struct FM {
-    
-    private static var db = DB()
-    
+        
     public static var temporaryDirectoryURL: URL {
         return FileManager.default.temporaryDirectory
     }
