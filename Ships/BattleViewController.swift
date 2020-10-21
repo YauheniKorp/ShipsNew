@@ -18,6 +18,7 @@ class BattleViewController: UIViewController {
         nameOfBattleLabel.text = "Battle"
         let avVC = AVPlayerViewController()
         avVC.view.frame = CGRect(x: 20, y: 20, width: 300, height: 300)
+        print("it was done!")
         self.addChild(avVC)
         self.view.addSubview(nameOfBattleLabel)
         
