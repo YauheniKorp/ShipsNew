@@ -69,7 +69,7 @@ class ViewController: UIViewController {
 //        self.view.addSubview(tabBar)
         segmentControll.addTarget(self, action: #selector(changeValue), for: .valueChanged)
         
-        self.title = "firse"
+        
         
         pick.center = view.center
         pick.dataSource = self
@@ -103,12 +103,14 @@ class ViewController: UIViewController {
         switch segmentControll.selectedSegmentIndex {
         case 0:
             pick.isHidden = true
-            let battles = db.gettingBattleList()
-            var resultString = ""
-            for value in battles {
-                resultString += value + "\n"
-            }
-            textView.text = resultString
+            let batVC = BattleViewController()
+            self.navigationController?.pushViewController(batVC, animated: true)
+//            let battles = db.gettingBattleList()
+//            var resultString = ""
+//            for value in battles {
+//                resultString += value + "\n"
+//            }
+//            textView.text = resultString
         case 1:
             textView.text = ""
             //            var pick = UIPickerView(frame: CGRect(x: Int(view.center.x) - Int((view.frame.width / 3) / 2), y: Int(view.center.y), width: Int(view.frame.width / 3), height: Int(view.frame.height / 3)))
