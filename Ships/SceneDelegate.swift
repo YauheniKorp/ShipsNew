@@ -18,19 +18,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let vc = ViewController()
         
-        let secondVC = ShipsCollectionViewController(collectionViewLayout: <#T##UICollectionViewLayout#>)
+      //  let secondVC = ShipsCollectionViewController(collectionViewLayout: UICollectionViewLayout.init())
         
         let navVC = UINavigationController(rootViewController: vc)
-        let secondNavVC = UINavigationController(rootViewController: secondVC)
+       // let secondNavVC = UINavigationController(rootViewController: secondVC)
         
-        let tabBarVC = UITabBarController()
-        tabBarVC.setViewControllers([navVC, secondNavVC], animated: true)
+       // let tabBarVC = UITabBarController()
+        //tabBarVC.setViewControllers([navVC, secondNavVC], animated: true)
         
-        self.window?.rootViewController = tabBarVC
+        self.window?.rootViewController = navVC
         
         self.window?.backgroundColor = .white
         
-        secondNavVC.loadViewIfNeeded()
+       // secondNavVC.loadViewIfNeeded()
         self.window?.makeKeyAndVisible()
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
