@@ -12,6 +12,7 @@
 		84189A77253997D000211A2F /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84189A76253997D000211A2F /* CollectionViewCell.swift */; };
 		84189A792539AEB800211A2F /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84189A782539AEB800211A2F /* Classes.swift */; };
 		84189A7B2539AECA00211A2F /* Battles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84189A7A2539AECA00211A2F /* Battles.swift */; };
+		8430824F2540244A00220152 /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8430824E2540244A00220152 /* BattleViewController.swift */; };
 		846724022537129D00295A20 /* Ship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846724012537129D00295A20 /* Ship.swift */; };
 		84B96A27252DFA8A0013A924 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B96A26252DFA8A0013A924 /* AppDelegate.swift */; };
 		84B96A29252DFA8A0013A924 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B96A28252DFA8A0013A924 /* SceneDelegate.swift */; };
@@ -42,6 +43,7 @@
 		84189A76253997D000211A2F /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		84189A782539AEB800211A2F /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
 		84189A7A2539AECA00211A2F /* Battles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Battles.swift; sourceTree = "<group>"; };
+		8430824E2540244A00220152 /* BattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleViewController.swift; sourceTree = "<group>"; };
 		846724012537129D00295A20 /* Ship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship.swift; sourceTree = "<group>"; };
 		84B96A23252DFA8A0013A924 /* Ships.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ships.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B96A26252DFA8A0013A924 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				84B96A2A252DFA8A0013A924 /* ViewController.swift */,
 				84DBB6832539D99C000B47A3 /* BattleView.swift */,
 				84B96A2C252DFA8A0013A924 /* Main.storyboard */,
+				8430824E2540244A00220152 /* BattleViewController.swift */,
 				84B96A2F252DFA8E0013A924 /* Assets.xcassets */,
 				84B96A31252DFA8E0013A924 /* LaunchScreen.storyboard */,
 				84B96A34252DFA8E0013A924 /* Info.plist */,
@@ -296,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8430824F2540244A00220152 /* BattleViewController.swift in Sources */,
 				84B96A2B252DFA8A0013A924 /* ViewController.swift in Sources */,
 				84189A7B2539AECA00211A2F /* Battles.swift in Sources */,
 				84FF08272537358E0025C473 /* ShipView.swift in Sources */,
