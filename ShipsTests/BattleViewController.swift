@@ -13,14 +13,14 @@ class BattleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let nameOfBattleLabel = UILabel(frame: CGRect(x: 15, y: self.view.frame.height-50, width: self.view.frame.width / 2 - 20, height: 50))
-        nameOfBattleLabel.text = "Battle"
-        let avVC = AVPlayerViewController()
-        avVC.view.frame = CGRect(x: 20, y: 20, width: 300, height: 300)
-        self.addChild(avVC)
-        self.view.addSubview(nameOfBattleLabel)
-        
+//
+//        let nameOfBattleLabel = UILabel(frame: CGRect(x: 15, y: self.view.frame.height-50, width: self.view.frame.width / 2 - 20, height: 50))
+//        nameOfBattleLabel.text = "Battle"
+//        let avVC = AVPlayerViewController()
+//        avVC.view.frame = CGRect(x: 20, y: 20, width: 300, height: 300)
+//        self.addChild(avVC)
+//        self.view.addSubview(nameOfBattleLabel)
+//
     }
     
 

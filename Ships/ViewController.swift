@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     
     var ships = Ships()
     
+    
+    
     enum TitleForSegment: String {
         case Battles = "Battles"
         case Ships = "Ships"
@@ -83,7 +85,11 @@ class ViewController: UIViewController {
         print(Ships())
         //        print(db.gettingShipsList("Kongo"))
         //        print(db.gettingBattleList())
+        textView.backgroundColor = .clear
         
+//        let battle = Battles().listOfBattle[0]
+//        let battleView = BattleView(battle)
+//        self.view.addSubview(battleView)
     }
     
     //MARK: - method of making ship icon in title
@@ -103,14 +109,9 @@ class ViewController: UIViewController {
         switch segmentControll.selectedSegmentIndex {
         case 0:
             pick.isHidden = true
-            let batVC = BattleViewController()
+            let battleSt: UIStoryboard = UIStoryboard(name: "BattleStoryboard", bundle: nil)
+            let batVC = battleSt.instantiateViewController(withIdentifier: "BattleVC")
             self.navigationController?.pushViewController(batVC, animated: true)
-//            let battles = db.gettingBattleList()
-//            var resultString = ""
-//            for value in battles {
-//                resultString += value + "\n"
-//            }
-//            textView.text = resultString
         case 1:
             textView.text = ""
             //            var pick = UIPickerView(frame: CGRect(x: Int(view.center.x) - Int((view.frame.width / 3) / 2), y: Int(view.center.y), width: Int(view.frame.width / 3), height: Int(view.frame.height / 3)))
