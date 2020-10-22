@@ -62,7 +62,7 @@ class BattleCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("\(indexPath.row)")
-        let vc = BattleVideoViewController()
+        let vc = BattleVideoViewController(battle[indexPath.row])
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

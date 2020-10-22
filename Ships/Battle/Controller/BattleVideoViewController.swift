@@ -7,6 +7,14 @@
 //
 
 import UIKit
+import AVKit
+
+
+struct FM {
+    public static var temporaryDirectoryURL: URL {
+            return FileManager.default.temporaryDirectory
+        }
+}
 
 class BattleVideoViewController: UIViewController {
 
@@ -16,8 +24,43 @@ class BattleVideoViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    init() {
+    
+    init(_ battle: Battle) {
         super.init(nibName: nil, bundle: nil)
+        
+        let nameLabel = UILabel(frame: CGRect(x: 10, y: (self.view.frame.height * 0.7 ) + 110, width: self.view.frame.width - 20, height: self.view.frame.height * 0.07))
+        nameLabel.text = "Name of battle is \(battle.name)"
+        nameLabel.backgroundColor = .systemYellow
+        nameLabel.layer.borderWidth = 0.5
+        nameLabel.layer.cornerRadius = 20
+        self.view.addSubview(nameLabel)
+        
+        let y = (self.view.frame.height * 0.7) + 110 + (self.view.frame.height * 0.1)
+        
+        let dateLabel = UILabel(frame: CGRect(x: 10, y: y, width: self.view.frame.width - 20, height: self.view.frame.height * 0.07))
+        
+        dateLabel.backgroundColor = .systemYellow
+        dateLabel.layer.borderWidth = 0.5
+        dateLabel.layer.cornerRadius = 20
+        dateLabel.text = "Date of battle is \(battle.date)"
+        
+//        let dateLabel = UILabel(frame: CGRect(x: 10, y: (self.view.frame.height * 0.7) + 110 + (self.view.frame.height * 0.1) + 10, width: self.view.frame.width - 20, height: self.view.frame.height * 0.1))
+        
+        self.view.addSubview(dateLabel)
+        
+        let url = saveVideoToTemp(battle.video)
+        
+        let player = AVPlayer(url: url)
+        let avVC = AVPlayerViewController()
+        avVC.player = player
+        
+        avVC.view.frame = CGRect(x: 10, y: 100, width: self.view.frame.width - 20 , height: self.view.frame.height * 0.7)
+        self.view.addSubview(avVC.view)
+        self.addChild(avVC)
+        player.play()
+        
+        
+        
     }
     
     required init?(coder: NSCoder) {
@@ -34,4 +77,24 @@ class BattleVideoViewController: UIViewController {
     }
     */
 
+}
+
+extension BattleVideoViewController {
+    
+    
+    private func saveVideoToTemp(_ data: Data) -> URL {
+        let url = FM.temporaryDirectoryURL.appendingPathComponent("video.mp4")
+        
+        print("url for file save = ",url)
+                
+        do {
+            try data.write(to: url)
+            print("file video.mp4 successfully create and save in folder Temp")
+        } catch {
+            print("file video.mp4 NOT save in folder Temp")
+        }
+        
+        return url
+    }
+    
 }

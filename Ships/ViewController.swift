@@ -11,8 +11,9 @@ import UIKit
 class ViewController: UIViewController {
     
     var ships = Ships()
-    
-    
+    let textView = UITextView()
+    let pick = UIPickerView()
+    var db = DB()
     
     enum TitleForSegment: String {
         case Battles = "Battles"
@@ -20,59 +21,40 @@ class ViewController: UIViewController {
         case Outcomes = "Outcomes"
     }
     
-//    var tabBar: UITabBar = {
-//
-//        let tabBar = UITabBar(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-//
-//        var item = UITabBarItem(title: "Battle", image: nil, selectedImage: nil)
-//        var item1 = UITabBarItem(title: "Ship", image: nil, selectedImage: nil)
-//        var arr = [UITabBarItem]()
-//        arr.append(item)
-//        arr.append(item1)
-////        tabBar.items = arr
-//        tabBar.setItems(arr, animated: true)
-//        return tabBar
-//    }()
-    
-    
     var segmentControll: UISegmentedControl = {
         let titles = ["Battles","Ships","Outcomes", "Full"]
         var segment = UISegmentedControl(items: titles)
-        segment.frame = CGRect(x: 10, y: 500, width: 360, height: 50)
-        segment.setWidth(90, forSegmentAt: 0)
-        segment.setWidth(90, forSegmentAt: 1)
-        segment.setWidth(90, forSegmentAt: 2)
-        segment.setWidth(90, forSegmentAt: 3)
         segment.backgroundColor = .systemYellow
         
         return segment
     }()
     
-    let pick = UIPickerView()
     
     
-    var textView: UITextView = {
-        var textView = UITextView(frame: CGRect(x: 40, y: 30, width: 300, height: 450))
-        
-        return textView
-    }()
+    fileprivate func createSegment() {
+        segmentControll.addTarget(self, action: #selector(changeValue), for: .valueChanged)
+        segmentControll.frame = CGRect(x: 20, y: self.view.frame.height - 100, width: self.view.frame.width - 40, height: 50)
+        segmentControll.setWidth(segmentControll.frame.width / 4, forSegmentAt: 0)
+        segmentControll.setWidth(segmentControll.frame.width / 4, forSegmentAt: 1)
+        segmentControll.setWidth(segmentControll.frame.width / 4, forSegmentAt: 2)
+        segmentControll.setWidth(segmentControll.frame.width / 4, forSegmentAt: 3)
+        self.view.addSubview(segmentControll)
+    }
     
-    var db = DB()
-    
-  
+    fileprivate func createTextView() {
+        textView.frame = CGRect(x: 40, y: 30, width: self.view.frame.width, height: self.view.frame.height * 0.7)
+        self.view.addSubview(textView)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //MARK: - create mainView
         makeTitleIcon()
+        createTextView()
+        createSegment()
         
-        self.view.addSubview(textView)
-        self.view.addSubview(segmentControll)
-//        self.view.addSubview(tabBar)
-        segmentControll.addTarget(self, action: #selector(changeValue), for: .valueChanged)
-        
-        
-        
+        //MARK: - settings of picker
         pick.center = view.center
         pick.dataSource = self
         pick.delegate = self
@@ -87,21 +69,21 @@ class ViewController: UIViewController {
         //        print(db.gettingBattleList())
         textView.backgroundColor = .clear
         
-//        let battle = Battles().listOfBattle[0]
-//        let battleView = BattleView(battle)
-//        self.view.addSubview(battleView)
+        //        let battle = Battles().listOfBattle[0]
+        //        let battleView = BattleView(battle)
+        //        self.view.addSubview(battleView)
     }
     
     //MARK: - method of making ship icon in title
     private func makeTitleIcon() {
-          let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
-          imageView.contentMode = .scaleAspectFit
-          let image = UIImage(named: "ship")
-          
-          imageView.image = image
-          
-          self.navigationItem.titleView = imageView
-      }
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+        imageView.contentMode = .scaleAspectFit
+        let image = UIImage(named: "ship")
+        
+        imageView.image = image
+        
+        self.navigationItem.titleView = imageView
+    }
     
     //MARK: - Value for each segment
     @objc func changeValue() {
@@ -119,9 +101,9 @@ class ViewController: UIViewController {
             pick.isHidden = false
             
             
-            //view.addSubview(pick)
-            // let ships = db.gettingShipsList(<#T##dbClass: String##String#>)
-            
+        //view.addSubview(pick)
+        // let ships = db.gettingShipsList(<#T##dbClass: String##String#>)
+        
         //            textView.text = "Ships"
         case 2:
             pick.isHidden = true
@@ -133,20 +115,10 @@ class ViewController: UIViewController {
             textView.text = resultText
         case 3:
             pick.isHidden = true
-            
             let storyboard: UIStoryboard = UIStoryboard(name: "ShipsStoryboard", bundle: nil)
             let shipVC = storyboard.instantiateViewController(withIdentifier: "shipsID")
             self.navigationController?.pushViewController(shipVC, animated: true)
-            
-//            let controller: ShipsCollectionViewController = storyboard.instantiateViewController(withIdentifier: "shipsID") as! ShipsCollectionViewController
-//            
-//            controller.modalPresentationStyle = .fullScreen
-//            present(controller, animated: true, completion: nil)
-//            var str = Battles.init().listOfBattle
-//            print(str[1])
-//            var str = Ships.init().listOfShips
-//            print(str[0])
-//            self.view.addSubview(ShipView(str[0]))
+
         default:
             break
         }
@@ -154,6 +126,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+   
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -174,7 +147,7 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selectedIndex = pickerView.selectedRow(inComponent: 0)
         let result = db.gettingClassOfShips()
-       
+        
         
         //TODO: make models of ship, ships[], class, classes[], battle, battles[]
         func changeTextViewForShipsByClass() {
@@ -224,5 +197,5 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         }
         
     }
-
+    
 }
