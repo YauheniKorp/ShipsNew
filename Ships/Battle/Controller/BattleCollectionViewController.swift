@@ -54,13 +54,16 @@ class BattleCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! BattleCollectionViewCell
+        
         cell.setCell(battle[indexPath.row], index: indexPath.row)
-    
+        cell.layer.borderWidth = 0.5
         return cell
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("\(indexPath.row)")
+        let vc = BattleVideoViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: UICollectionViewDelegate
@@ -99,7 +102,8 @@ class BattleCollectionViewController: UICollectionViewController {
 
 extension BattleCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width / 2.9, height: self.view.frame.height / 3.6)
+        return CGSize(width: 120, height: 120)
+
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

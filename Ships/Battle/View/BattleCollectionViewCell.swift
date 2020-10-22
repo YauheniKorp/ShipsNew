@@ -12,7 +12,7 @@ class BattleCollectionViewCell: UICollectionViewCell {
     
     func setCell(_ battle: Battle, index: Int) {
         
-        let battle = BattleView(battle, index: index, frame: CGRect(x: 0, y: 0, width: 150, height: 150))
+        let battle = BattleView(battle, index: index, frame: CGRect(x: 0, y: 0, width: 120, height: 120))
         
         self.addSubview(battle)
     }

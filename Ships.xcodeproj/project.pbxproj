@@ -29,6 +29,7 @@
 		84FF7E0F254194F20007DEE0 /* BattleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF7E0E254194F20007DEE0 /* BattleCollectionViewController.swift */; };
 		84FF7E1B2541BC8E0007DEE0 /* BattleStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FF7E1A2541BC8E0007DEE0 /* BattleStoryboard.storyboard */; };
 		84FF7E202541BF440007DEE0 /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8430824E2540244A00220152 /* BattleViewController.swift */; };
+		84FF7E242541D2A10007DEE0 /* BattleVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF7E232541D2A10007DEE0 /* BattleVideoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		84FF7E0A254194DA0007DEE0 /* BattleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleCollectionViewCell.swift; sourceTree = "<group>"; };
 		84FF7E0E254194F20007DEE0 /* BattleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleCollectionViewController.swift; sourceTree = "<group>"; };
 		84FF7E1A2541BC8E0007DEE0 /* BattleStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BattleStoryboard.storyboard; sourceTree = "<group>"; };
+		84FF7E232541D2A10007DEE0 /* BattleVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleVideoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				84FF7E1A2541BC8E0007DEE0 /* BattleStoryboard.storyboard */,
+				84FF7E232541D2A10007DEE0 /* BattleVideoViewController.swift */,
 				84FF7E0E254194F20007DEE0 /* BattleCollectionViewController.swift */,
 			);
 			path = Controller;
@@ -353,6 +356,7 @@
 				84189A77253997D000211A2F /* CollectionViewCell.swift in Sources */,
 				84B96A4F252DFC2F0013A924 /* DB.swift in Sources */,
 				84B96A27252DFA8A0013A924 /* AppDelegate.swift in Sources */,
+				84FF7E242541D2A10007DEE0 /* BattleVideoViewController.swift in Sources */,
 				84B96A29252DFA8A0013A924 /* SceneDelegate.swift in Sources */,
 				840D530725372FE4008FBD53 /* ShipsCollectionViewController.swift in Sources */,
 				846724022537129D00295A20 /* Ship.swift in Sources */,
