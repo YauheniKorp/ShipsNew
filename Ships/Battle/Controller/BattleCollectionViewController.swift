@@ -59,6 +59,9 @@ class BattleCollectionViewController: UICollectionViewController {
         return cell
     }
 
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("\(indexPath.row)")
+    }
     
     // MARK: UICollectionViewDelegate
 
@@ -94,15 +97,16 @@ class BattleCollectionViewController: UICollectionViewController {
 
 }
 
-extension BattleCollectionViewController {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: self.view.frame.width / 2.9, height: self.view.frame.height / 3.6)
-//    }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40)
-//    }
+extension BattleCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: self.view.frame.width / 3, height: self.view.frame.height / 3)
-        }
+        return CGSize(width: self.view.frame.width / 2.9, height: self.view.frame.height / 3.6)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 50)
+    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//            return CGSize(width: self.view.frame.width / 3, height: self.view.frame.height / 3)
+//        }
+    
 }
