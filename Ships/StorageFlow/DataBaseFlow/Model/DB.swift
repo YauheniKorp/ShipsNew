@@ -162,11 +162,11 @@ extension DB {
 
 extension DB {
     
-    func gettingOutcomesList() -> [String] {
+    func gettingOutcomesList() -> [Outcome] {
         let query = "select ship, battle, result from Outcomes"
         var str: OpaquePointer? = nil
         
-        var outcomes = [String]()
+        var outcomes = [Outcome]()
         
         if sqlite3_prepare_v2(DB.db, query, -1, &str, nil) == SQLITE_OK {
             print("Query \(query) is DONE!")
@@ -179,7 +179,7 @@ extension DB {
             let battle = String(cString: sqlite3_column_text(str, 1))
             let result = String(cString: sqlite3_column_text(str, 2))
             
-            outcomes.append("Name = \(ship), battle is \(battle), result is \(result)")
+            outcomes.append(Outcome(shipName: ship, battleName: battle, result: result))
         }
         
         return outcomes
