@@ -14,6 +14,12 @@
 		84189A7B2539AECA00211A2F /* Battles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84189A7A2539AECA00211A2F /* Battles.swift */; };
 		8430825525406ABD00220152 /* BattleContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8430825425406ABD00220152 /* BattleContainer.xib */; };
 		8430825725406F4500220152 /* BattleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8430825625406F4500220152 /* BattleView.swift */; };
+		844D99E92542D8CF00F28A39 /* OutcomesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844D99E82542D8CF00F28A39 /* OutcomesStoryboard.storyboard */; };
+		844D99F12542D9A000F28A39 /* Outcomes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D99F02542D9A000F28A39 /* Outcomes.swift */; };
+		844D99F52542DC3700F28A39 /* OutcomesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D99F42542DC3700F28A39 /* OutcomesCollectionViewController.swift */; };
+		844D99F92542DC6B00F28A39 /* OutcomeContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844D99F82542DC6B00F28A39 /* OutcomeContainer.xib */; };
+		844D99FD2542DC7D00F28A39 /* OutcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D99FC2542DC7D00F28A39 /* OutcomeView.swift */; };
+		844D9A012542E53600F28A39 /* OutcomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D9A002542E53600F28A39 /* OutcomeCollectionViewCell.swift */; };
 		846724022537129D00295A20 /* Ship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846724012537129D00295A20 /* Ship.swift */; };
 		84B96A27252DFA8A0013A924 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B96A26252DFA8A0013A924 /* AppDelegate.swift */; };
 		84B96A29252DFA8A0013A924 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B96A28252DFA8A0013A924 /* SceneDelegate.swift */; };
@@ -28,7 +34,6 @@
 		84FF7E0B254194DA0007DEE0 /* BattleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF7E0A254194DA0007DEE0 /* BattleCollectionViewCell.swift */; };
 		84FF7E0F254194F20007DEE0 /* BattleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF7E0E254194F20007DEE0 /* BattleCollectionViewController.swift */; };
 		84FF7E1B2541BC8E0007DEE0 /* BattleStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FF7E1A2541BC8E0007DEE0 /* BattleStoryboard.storyboard */; };
-		84FF7E202541BF440007DEE0 /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8430824E2540244A00220152 /* BattleViewController.swift */; };
 		84FF7E242541D2A10007DEE0 /* BattleVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF7E232541D2A10007DEE0 /* BattleVideoViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,9 +53,14 @@
 		84189A76253997D000211A2F /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		84189A782539AEB800211A2F /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
 		84189A7A2539AECA00211A2F /* Battles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Battles.swift; sourceTree = "<group>"; };
-		8430824E2540244A00220152 /* BattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleViewController.swift; sourceTree = "<group>"; };
 		8430825425406ABD00220152 /* BattleContainer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BattleContainer.xib; sourceTree = "<group>"; };
 		8430825625406F4500220152 /* BattleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleView.swift; sourceTree = "<group>"; };
+		844D99E82542D8CF00F28A39 /* OutcomesStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutcomesStoryboard.storyboard; sourceTree = "<group>"; };
+		844D99F02542D9A000F28A39 /* Outcomes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Outcomes.swift; sourceTree = "<group>"; };
+		844D99F42542DC3700F28A39 /* OutcomesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutcomesCollectionViewController.swift; sourceTree = "<group>"; };
+		844D99F82542DC6B00F28A39 /* OutcomeContainer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutcomeContainer.xib; sourceTree = "<group>"; };
+		844D99FC2542DC7D00F28A39 /* OutcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutcomeView.swift; sourceTree = "<group>"; };
+		844D9A002542E53600F28A39 /* OutcomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutcomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		846724012537129D00295A20 /* Ship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship.swift; sourceTree = "<group>"; };
 		84B96A23252DFA8A0013A924 /* Ships.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ships.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B96A26252DFA8A0013A924 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +138,43 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		844D99EC2542D8E600F28A39 /* Outcomess */ = {
+			isa = PBXGroup;
+			children = (
+				844D99EF2542D98300F28A39 /* Controller */,
+				844D99EE2542D97E00F28A39 /* View */,
+				844D99ED2542D97400F28A39 /* Model */,
+			);
+			path = Outcomess;
+			sourceTree = "<group>";
+		};
+		844D99ED2542D97400F28A39 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				844D99F02542D9A000F28A39 /* Outcomes.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		844D99EE2542D97E00F28A39 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				844D99F82542DC6B00F28A39 /* OutcomeContainer.xib */,
+				844D99FC2542DC7D00F28A39 /* OutcomeView.swift */,
+				844D9A002542E53600F28A39 /* OutcomeCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		844D99EF2542D98300F28A39 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				844D99E82542D8CF00F28A39 /* OutcomesStoryboard.storyboard */,
+				844D99F42542DC3700F28A39 /* OutcomesCollectionViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		846723FF2537126300295A20 /* Ships */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +224,7 @@
 		84B96A25252DFA8A0013A924 /* Ships */ = {
 			isa = PBXGroup;
 			children = (
+				844D99EC2542D8E600F28A39 /* Outcomess */,
 				84308250254068A800220152 /* Battle */,
 				846723FF2537126300295A20 /* Ships */,
 				84B96A26252DFA8A0013A924 /* AppDelegate.swift */,
@@ -196,7 +244,6 @@
 			children = (
 				84B96A3D252DFA8F0013A924 /* ShipsTests.swift */,
 				84B96A3F252DFA8F0013A924 /* Info.plist */,
-				8430824E2540244A00220152 /* BattleViewController.swift */,
 			);
 			path = ShipsTests;
 			sourceTree = "<group>";
@@ -328,6 +375,8 @@
 				84B96A33252DFA8E0013A924 /* LaunchScreen.storyboard in Resources */,
 				84B96A30252DFA8E0013A924 /* Assets.xcassets in Resources */,
 				84B96A2E252DFA8A0013A924 /* Main.storyboard in Resources */,
+				844D99E92542D8CF00F28A39 /* OutcomesStoryboard.storyboard in Resources */,
+				844D99F92542DC6B00F28A39 /* OutcomeContainer.xib in Resources */,
 				84DBB6822539D404000B47A3 /* Ships.db in Resources */,
 				840D530925373023008FBD53 /* ShipsStoryboard.storyboard in Resources */,
 				8430825525406ABD00220152 /* BattleContainer.xib in Resources */,
@@ -349,16 +398,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				84FF7E0F254194F20007DEE0 /* BattleCollectionViewController.swift in Sources */,
+				844D9A012542E53600F28A39 /* OutcomeCollectionViewCell.swift in Sources */,
 				84B96A2B252DFA8A0013A924 /* ViewController.swift in Sources */,
 				84189A7B2539AECA00211A2F /* Battles.swift in Sources */,
 				84FF08272537358E0025C473 /* ShipView.swift in Sources */,
 				84FF7E0B254194DA0007DEE0 /* BattleCollectionViewCell.swift in Sources */,
+				844D99F12542D9A000F28A39 /* Outcomes.swift in Sources */,
 				84189A77253997D000211A2F /* CollectionViewCell.swift in Sources */,
 				84B96A4F252DFC2F0013A924 /* DB.swift in Sources */,
 				84B96A27252DFA8A0013A924 /* AppDelegate.swift in Sources */,
 				84FF7E242541D2A10007DEE0 /* BattleVideoViewController.swift in Sources */,
 				84B96A29252DFA8A0013A924 /* SceneDelegate.swift in Sources */,
+				844D99F52542DC3700F28A39 /* OutcomesCollectionViewController.swift in Sources */,
 				840D530725372FE4008FBD53 /* ShipsCollectionViewController.swift in Sources */,
+				844D99FD2542DC7D00F28A39 /* OutcomeView.swift in Sources */,
 				846724022537129D00295A20 /* Ship.swift in Sources */,
 				8430825725406F4500220152 /* BattleView.swift in Sources */,
 				84189A792539AEB800211A2F /* Classes.swift in Sources */,
@@ -369,7 +422,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84FF7E202541BF440007DEE0 /* BattleViewController.swift in Sources */,
 				84B96A3E252DFA8F0013A924 /* ShipsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

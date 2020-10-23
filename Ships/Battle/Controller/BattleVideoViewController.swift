@@ -25,18 +25,16 @@ class BattleVideoViewController: UIViewController {
     }
     
     
-    init(_ battle: Battle) {
-        super.init(nibName: nil, bundle: nil)
-        
+    fileprivate func initNameLabel(_ battle: Battle) {
         let nameLabel = UILabel(frame: CGRect(x: 10, y: (self.view.frame.height * 0.7 ) + 110, width: self.view.frame.width - 20, height: self.view.frame.height * 0.07))
         nameLabel.text = "Name of battle is \(battle.name)"
         nameLabel.backgroundColor = .systemYellow
         nameLabel.layer.borderWidth = 0.5
         nameLabel.layer.cornerRadius = 20
         self.view.addSubview(nameLabel)
-        
-        let y = (self.view.frame.height * 0.7) + 110 + (self.view.frame.height * 0.1)
-        
+    }
+    
+    fileprivate func initDateLabel(_ y: CGFloat, _ battle: Battle) {
         let dateLabel = UILabel(frame: CGRect(x: 10, y: y, width: self.view.frame.width - 20, height: self.view.frame.height * 0.07))
         
         dateLabel.backgroundColor = .systemYellow
@@ -44,9 +42,19 @@ class BattleVideoViewController: UIViewController {
         dateLabel.layer.cornerRadius = 20
         dateLabel.text = "Date of battle is \(battle.date)"
         
-//        let dateLabel = UILabel(frame: CGRect(x: 10, y: (self.view.frame.height * 0.7) + 110 + (self.view.frame.height * 0.1) + 10, width: self.view.frame.width - 20, height: self.view.frame.height * 0.1))
+        //        let dateLabel = UILabel(frame: CGRect(x: 10, y: (self.view.frame.height * 0.7) + 110 + (self.view.frame.height * 0.1) + 10, width: self.view.frame.width - 20, height: self.view.frame.height * 0.1))
         
         self.view.addSubview(dateLabel)
+    }
+    
+    init(_ battle: Battle) {
+        super.init(nibName: nil, bundle: nil)
+        
+        initNameLabel(battle)
+        
+        let y = (self.view.frame.height * 0.7) + 110 + (self.view.frame.height * 0.1)
+        
+        initDateLabel(y, battle)
         
         let url = saveVideoToTemp(battle.video)
         

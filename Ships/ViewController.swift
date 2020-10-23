@@ -107,12 +107,15 @@ class ViewController: UIViewController {
         //            textView.text = "Ships"
         case 2:
             pick.isHidden = true
-            let textForOutomesSegment = db.gettingOutcomesList()
-            var resultText = ""
-            for value in textForOutomesSegment {
-                resultText += value + "\n"
-            }
-            textView.text = resultText
+            let storyboard: UIStoryboard = UIStoryboard(name: "OutcomesStoryboard", bundle: nil)
+            let outcomeVC = storyboard.instantiateViewController(withIdentifier: "outcomesVC")
+            self.navigationController?.pushViewController(outcomeVC, animated: true)
+//            let textForOutomesSegment = db.gettingOutcomesList()
+//            var resultText = ""
+//            for value in textForOutomesSegment {
+//                resultText += value + "\n"
+//            }
+//            textView.text = resultText
         case 3:
             pick.isHidden = true
             let storyboard: UIStoryboard = UIStoryboard(name: "ShipsStoryboard", bundle: nil)
