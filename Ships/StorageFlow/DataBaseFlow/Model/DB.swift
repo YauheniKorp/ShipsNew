@@ -40,7 +40,7 @@ struct DB {
             
             return "open DataBase done \(dbPath)"
         } catch {}
-
+        
         return "error copy DB:\(dbResourcePath) in applicationSupportDirectory"
     }
     
@@ -117,9 +117,9 @@ extension DB {
         }
         
         while sqlite3_step(str) == SQLITE_ROW {
-//            let name = String(cString: sqlite3_column_text(str, 0))
+            //            let name = String(cString: sqlite3_column_text(str, 0))
             let dbClass = String(cString: sqlite3_column_text(str, 0))
-//            let launched = Int(sqlite3_column_int(str, 2))
+            //            let launched = Int(sqlite3_column_int(str, 2))
             
             ships.append(dbClass)
         }
@@ -182,6 +182,7 @@ extension DB {
             outcomes.append(Outcome(shipName: ship, battleName: battle, result: result))
         }
         
+        sqlite3_finalize(str)
         return outcomes
     }
 }
@@ -207,7 +208,7 @@ extension DB {
             let name = String(cString: sqlite3_column_text(str, 0))
             let shipClass = String(cString: sqlite3_column_text(str, 1))
             let launched = Int(sqlite3_column_int(str, 2))
-                        
+            
             var blob = Data()
             if let dataBlob = sqlite3_column_blob(str, 3){
                 let dataBlobLength = sqlite3_column_bytes(str, 3)
@@ -220,6 +221,7 @@ extension DB {
             ships.append(Ship(name: name, shipClass: shipClass, launched: launched, icon: imageSource!))
         }
         
+        sqlite3_finalize(str)
         return ships
     }
     
@@ -243,7 +245,7 @@ extension DB {
             let name = String(cString: sqlite3_column_text(str, 0))
             let date = String(cString: sqlite3_column_text(str, 1))
             
-                        
+            
             var blob = Data()
             if let dataBlob = sqlite3_column_blob(str, 2){
                 let dataBlobLength = sqlite3_column_bytes(str, 2)
@@ -254,39 +256,97 @@ extension DB {
             battles.append(Battle(name: name, date: date, video: blob))
         }
         
+        sqlite3_finalize(str)
         return battles
     }
     
     func getFullInfoAboutClasses() -> [ClassSpecification] {
         
         
-            
-            let query = "select * from classes"
-            var str: OpaquePointer? = nil
-            
-            var classes = [ClassSpecification]()
-            
-            if sqlite3_prepare_v2(DB.db, query, -1, &str, nil) == SQLITE_OK {
-                print("Query \(query) is DONE!")
-            } else {
-                print("Query \(query) is incorrect!")
-            }
-            
-            while sqlite3_step(str) == SQLITE_ROW {
-                let name = String(cString: sqlite3_column_text(str, 0))
-                let type = String(cString: sqlite3_column_text(str, 1))
-                let country = String(cString: sqlite3_column_text(str, 2))
-                let numGuns = Int(sqlite3_column_int(str, 3))
-                let bore = Int(sqlite3_column_int(str, 4))
-                let displacement = Int(sqlite3_column_int(str, 5))
-                            
-                classes.append(ClassSpecification(name: name, type: type, country: country, numGuns: numGuns, bore: bore, displacement: displacement))
-                
-            }
-            
-            return classes
+        
+        let query = "select * from classes"
+        var str: OpaquePointer? = nil
+        
+        var classes = [ClassSpecification]()
+        
+        if sqlite3_prepare_v2(DB.db, query, -1, &str, nil) == SQLITE_OK {
+            print("Query \(query) is DONE!")
+        } else {
+            print("Query \(query) is incorrect!")
         }
         
+        while sqlite3_step(str) == SQLITE_ROW {
+            let name = String(cString: sqlite3_column_text(str, 0))
+            let type = String(cString: sqlite3_column_text(str, 1))
+            let country = String(cString: sqlite3_column_text(str, 2))
+            let numGuns = Int(sqlite3_column_int(str, 3))
+            let bore = Int(sqlite3_column_int(str, 4))
+            let displacement = Int(sqlite3_column_int(str, 5))
+            
+            classes.append(ClassSpecification(name: name, type: type, country: country, numGuns: numGuns, bore: bore, displacement: displacement))
+            
+        }
+        
+        sqlite3_finalize(str)
+        return classes
+    }
+    
+    
+}
+
+//MARK: - delete battle by name
+//delete from Battles where name = '\()'
+//FIXME: delete ext after testing
+extension DB {
+    
+    func deleteFromBattle(_ name: String) {
+        let query = "delete from Battles where name = '\(name)'"
+        var del: OpaquePointer? = nil
+        
+        guard sqlite3_prepare_v2(DB.db, query, -1, &del, nil) == SQLITE_OK else {
+            let errmsg = String(cString: sqlite3_errmsg(DB.db)!)
+            print("error prepare delete: \(errmsg)")
+            return
+        }
+        
+        guard sqlite3_step(del) == SQLITE_DONE  else {
+            let errmsg = String(cString: sqlite3_errmsg(DB.db)!)
+            print("error delete: \(errmsg)")
+            return
+        }
+        
+        sqlite3_finalize(del)
+        print(query)
         
     }
+    
+    
+    
+}
 
+protocol ProtocolDB {
+    func deleteFromBattle(_ name: String)
+}
+
+extension ProtocolDB {
+    func deleteFromBattle(_ name: String) {
+        let query = "delete from Battles where name = '\(name)'"
+        var del: OpaquePointer? = nil
+        
+        guard sqlite3_prepare_v2(DB.db, query, -1, &del, nil) == SQLITE_OK else {
+            let errmsg = String(cString: sqlite3_errmsg(DB.db)!)
+            print("error prepare delete: \(errmsg)")
+            return
+        }
+        
+        guard sqlite3_step(del) == SQLITE_DONE  else {
+            let errmsg = String(cString: sqlite3_errmsg(DB.db)!)
+            print("error delete: \(errmsg)")
+            return
+        }
+        
+        sqlite3_finalize(del)
+        print(query)
+        
+    }
+}
