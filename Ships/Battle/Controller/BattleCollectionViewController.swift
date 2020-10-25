@@ -27,6 +27,7 @@ class BattleCollectionViewController: UICollectionViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: deleteButton)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
+       
         
         // Register cell classes
         self.collectionView!.register(BattleCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -135,12 +136,12 @@ extension BattleCollectionViewController: ProtocolDB {
             index = Int(alert.textFields![0].text!)!
             let name = self.battle[index].name
             self.deleteFromBattle(name)
+            self.collectionView.reloadData()
             print(index)
         }
         
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
-        
-        //return index
+
     }
 }

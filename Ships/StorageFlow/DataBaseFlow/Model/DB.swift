@@ -43,10 +43,6 @@ struct DB {
         
         return "error copy DB:\(dbResourcePath) in applicationSupportDirectory"
     }
-    
-    
-    
-    
 }
 
 //MARK: - getting shiping list

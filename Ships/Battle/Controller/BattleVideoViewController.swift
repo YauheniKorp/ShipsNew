@@ -8,6 +8,7 @@
 
 import UIKit
 import AVKit
+import WebKit
 
 
 struct FM {
@@ -18,6 +19,9 @@ struct FM {
 
 class BattleVideoViewController: UIViewController {
 
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -58,14 +62,21 @@ class BattleVideoViewController: UIViewController {
         
         let url = saveVideoToTemp(battle.video)
         
-        let player = AVPlayer(url: url)
-        let avVC = AVPlayerViewController()
-        avVC.player = player
         
-        avVC.view.frame = CGRect(x: 10, y: 100, width: self.view.frame.width - 20 , height: self.view.frame.height * 0.7)
-        self.view.addSubview(avVC.view)
-        self.addChild(avVC)
-        player.play()
+        let webPl = WKWebView(frame: CGRect(x: 10, y: 100, width: self.view.frame.width - 20 , height: self.view.frame.height * 0.7))
+        webPl.backgroundColor = .systemGray
+        let request = NSURLRequest(url: url)
+        webPl.load(request as URLRequest)
+        self.view.addSubview(webPl)
+        
+//        let player = AVPlayer(url: url)
+//        let avVC = AVPlayerViewController()
+//        avVC.player = player
+//
+//        avVC.view.frame = CGRect(x: 10, y: 100, width: self.view.frame.width - 20 , height: self.view.frame.height * 0.7)
+//        self.view.addSubview(avVC.view)
+//        self.addChild(avVC)
+//        player.play()
         
         
         
